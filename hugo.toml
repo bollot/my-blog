@@ -4,7 +4,7 @@
 # 部署: GitHub Pages
 # ============================================================
 
-baseURL = "https://bollot.github.io/my-blog/"
+baseURL = "https://delightful-salamander-64e810.netlify.app/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
 title = "Bollot`Blog"
