@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>注册 / 登录 · Ballot's Blog</title>
+  <style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f5f5f5; }
+    .card { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 90%; }
+    h2 { margin-top: 0; }
+    .hint { margin-top: 20px; padding: 12px; background: #e8f4fd; border-radius: 4px; font-size: 13px; color: #0c63a3; text-align: left; }
+  </style>
+  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <div class="card">
+    <h2>后台账号注册</h2>
+    <div data-netlify-identity-menu></div>
+    <div class="hint">
+      1. 点击上方 <strong>Sign up</strong><br>
+      2. 输入邮箱和密码<br>
+      3. 去邮箱点确认链接<br>
+      4. 回来登录，自动进入后台
+    </div>
+  </div>
+  <script>
+    netlifyIdentity.init();
+    netlifyIdentity.on('login', function() { window.location.href = '/admin/'; });
+  </script>
+</body>
+</html>
