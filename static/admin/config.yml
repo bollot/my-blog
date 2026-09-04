@@ -6,10 +6,8 @@
 # 后端配置
 # 方式一（推荐）: Netlify Git Gateway - 需在 Netlify 启用 Identity
 backend:
-  name: github
-  repo: ballot/my-blog
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
 
 # 方式二: 直接连 GitHub（需自行部署 OAuth 代理）
 # backend:
