@@ -4,10 +4,10 @@
 # 部署: GitHub Pages
 # ============================================================
 
-baseURL = "https://yourusername.github.io/"
+baseURL = "https://bollot.github.io/my-blog/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
-title = "多元志 · Multiverse Blog"
+title = "Bollot`Blog"
 theme = "PaperMod"
 enableRobotsTXT = true
 buildDrafts = false
@@ -35,7 +35,7 @@ hasCJKLanguage = true
   [languages.zh]
     languageName = "中文"
     weight = 1
-    title = "多元志"
+    title = "Bollot`Blog"
     [languages.zh.params]
       description = "记录技术、摄影、生活与思考的多元空间"
     [languages.zh.menu]
@@ -78,7 +78,7 @@ hasCJKLanguage = true
   [languages.en]
     languageName = "English"
     weight = 2
-    title = "Multiverse Blog"
+    title = "Bollot`Blog"
     [languages.en.params]
       description = "A diverse space for tech, photography, life and thoughts"
     [languages.en.menu]
@@ -158,10 +158,10 @@ hasCJKLanguage = true
   # 社交链接
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/yourusername"
+    url = "https://github.com/bollot"
   [[params.socialIcons]]
     name = "email"
-    url = "mailto:you@example.com"
+    url = "kkhhhkk@proton.me"
   [[params.socialIcons]]
     name = "rss"
     url = "/index.xml"
