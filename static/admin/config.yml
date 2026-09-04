@@ -1,0 +1,173 @@
+# ============================================================
+# Decap CMS 配置 - 多元化博客后台
+# 访问地址: https://你的域名/admin/
+# ============================================================
+
+# 后端配置
+# 方式一（推荐）: Netlify Git Gateway - 需在 Netlify 启用 Identity
+backend:
+  name: git-gateway
+  branch: main
+
+# 方式二: 直接连 GitHub（需自行部署 OAuth 代理）
+# backend:
+#   name: github
+#   repo: yourusername/yourusername.github.io
+#   branch: main
+#   base_url: https://你的-oauth-代理.example.com
+
+# 媒体文件上传位置
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# 站点地址（用于预览）
+site_url: https://yourusername.github.io/
+display_url: https://yourusername.github.io/
+logo_url: /images/logo.png
+
+# 编辑器配置
+# publish_mode: editorial_workflow  # 取消注释则启用"草稿→审阅→发布"工作流（多人协作时用）
+show_preview_links: true
+
+# ============================================================
+# 内容模型定义
+# ============================================================
+collections:
+
+  # -------------------- 📝 文章 --------------------
+  - name: "posts"
+    label: "文章"
+    label_singular: "文章"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    identifier_field: "title"
+    summary: "{{title}} — {{date}} ({{categories}})"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "已发布"
+        field: draft
+        pattern: false
+      - label: "草稿"
+        field: draft
+        pattern: true
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false, hint: "开启则不发布到线上" }
+      - { label: "分类", name: "categories", widget: "list", default: ["技术"], required: false }
+      - { label: "标签", name: "tags", widget: "list", required: false }
+      - { label: "系列", name: "series", widget: "list", required: false, hint: "属于哪个系列文章" }
+      - { label: "摘要", name: "summary", widget: "text", required: false }
+      - label: "封面图"
+        name: "cover"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "图片", name: "image", widget: "image", required: false }
+          - { label: "描述", name: "alt", widget: "string", required: false }
+          - { label: "说明文字", name: "caption", widget: "string", required: false }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  # -------------------- 📷 摄影 --------------------
+  - name: "photos"
+    label: "摄影"
+    label_singular: "摄影作品"
+    folder: "content/photos"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    identifier_field: "title"
+    summary: "{{title}} — {{location}} ({{date}})"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "拍摄日期", name: "date", widget: "datetime" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "分类", name: "categories", widget: "list", default: ["摄影"], required: false }
+      - { label: "标签", name: "tags", widget: "list", required: false }
+      - { label: "拍摄地点", name: "location", widget: "string", required: false }
+      - { label: "相机", name: "camera", widget: "string", required: false }
+      - { label: "镜头", name: "lens", widget: "string", required: false }
+      - { label: "摘要", name: "summary", widget: "text", required: false }
+      - label: "封面图"
+        name: "cover"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "图片", name: "image", widget: "image", required: false }
+          - { label: "描述", name: "alt", widget: "string", required: false }
+          - { label: "说明文字", name: "caption", widget: "string", required: false }
+      - { label: "正文 / 照片说明", name: "body", widget: "markdown" }
+
+  # -------------------- 🛠️ 项目 --------------------
+  - name: "projects"
+    label: "项目"
+    label_singular: "项目"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    identifier_field: "title"
+    summary: "{{title}} — {{status}} ({{tech}})"
+    fields:
+      - { label: "项目名称", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "分类", name: "categories", widget: "list", default: ["项目"], required: false }
+      - { label: "标签", name: "tags", widget: "list", required: false }
+      - { label: "技术栈", name: "tech", widget: "list", required: false, hint: "如: Hugo, JavaScript, Python" }
+      - label: "项目状态"
+        name: "status"
+        widget: "select"
+        default: "进行中"
+        options: ["进行中", "已完成", "已归档"]
+      - { label: "仓库地址", name: "repo", widget: "string", required: false }
+      - { label: "演示地址", name: "demo", widget: "string", required: false }
+      - { label: "摘要", name: "summary", widget: "text", required: false }
+      - label: "封面图"
+        name: "cover"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "图片", name: "image", widget: "image", required: false }
+          - { label: "描述", name: "alt", widget: "string", required: false }
+          - { label: "说明文字", name: "caption", widget: "string", required: false }
+      - { label: "项目详情", name: "body", widget: "markdown" }
+
+  # -------------------- 📒 笔记 --------------------
+  - name: "notes"
+    label: "笔记"
+    label_singular: "笔记"
+    folder: "content/notes"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    identifier_field: "title"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "分类", name: "categories", widget: "list", default: ["笔记"], required: false }
+      - { label: "标签", name: "tags", widget: "list", required: false }
+      - { label: "摘要", name: "summary", widget: "text", required: false }
+      - { label: "笔记内容", name: "body", widget: "markdown" }
+
+  # -------------------- 🔧 固定页面 --------------------
+  - name: "pages"
+    label: "固定页面"
+    files:
+      - label: "关于页面"
+        name: "about"
+        file: "content/about/_index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "日期", name: "date", widget: "datetime" }
+          - { label: "URL", name: "url", widget: "string", default: "/about/" }
+          - { label: "摘要", name: "summary", widget: "text", required: false }
+          - { label: "正文", name: "body", widget: "markdown" }
