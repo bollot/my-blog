@@ -21,8 +21,8 @@ media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 # 站点地址（用于预览）
-site_url: https://delightful-salamander-64e810.netlify.app/
-display_url: https://delightful-salamander-64e810.netlify.app/
+site_url: https://bollot.netlify.app/
+display_url: https://bollot.netlify.app/
 logo_url: /images/logo.png
 
 # 编辑器配置
