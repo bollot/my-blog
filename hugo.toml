@@ -1,0 +1,203 @@
+# ============================================================
+# 多元化博客 - Hugo 配置文件
+# 框架: Hugo + PaperMod 主题
+# 部署: GitHub Pages
+# ============================================================
+
+baseURL = "https://yourusername.github.io/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh"
+title = "多元志 · Multiverse Blog"
+theme = "PaperMod"
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = true
+hasCJKLanguage = true
+
+[pagination]
+  pagerSize = 8
+
+# 输出格式 - 为首页和分类页生成 RSS
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+# 最小化 HTML
+[minify]
+  disableHTML = false
+
+# ============================================================
+# 多语言配置
+# ============================================================
+[languages]
+  [languages.zh]
+    languageName = "中文"
+    weight = 1
+    title = "多元志"
+    [languages.zh.params]
+      description = "记录技术、摄影、生活与思考的多元空间"
+    [languages.zh.menu]
+      [[languages.zh.menu.main]]
+        identifier = "posts"
+        name = "文章"
+        url = "/posts/"
+        weight = 10
+      [[languages.zh.menu.main]]
+        identifier = "photos"
+        name = "摄影"
+        url = "/photos/"
+        weight = 20
+      [[languages.zh.menu.main]]
+        identifier = "projects"
+        name = "项目"
+        url = "/projects/"
+        weight = 30
+      [[languages.zh.menu.main]]
+        identifier = "notes"
+        name = "笔记"
+        url = "/notes/"
+        weight = 40
+      [[languages.zh.menu.main]]
+        identifier = "archives"
+        name = "归档"
+        url = "/archives/"
+        weight = 50
+      [[languages.zh.menu.main]]
+        identifier = "search"
+        name = "搜索"
+        url = "/search/"
+        weight = 60
+      [[languages.zh.menu.main]]
+        identifier = "about"
+        name = "关于"
+        url = "/about/"
+        weight = 70
+
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    title = "Multiverse Blog"
+    [languages.en.params]
+      description = "A diverse space for tech, photography, life and thoughts"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/en/posts/"
+        weight = 10
+      [[languages.en.menu.main]]
+        identifier = "photos"
+        name = "Photos"
+        url = "/en/photos/"
+        weight = 20
+      [[languages.en.menu.main]]
+        identifier = "projects"
+        name = "Projects"
+        url = "/en/projects/"
+        weight = 30
+      [[languages.en.menu.main]]
+        identifier = "notes"
+        name = "Notes"
+        url = "/en/notes/"
+        weight = 40
+      [[languages.en.menu.main]]
+        identifier = "archives"
+        name = "Archives"
+        url = "/en/archives/"
+        weight = 50
+      [[languages.en.menu.main]]
+        identifier = "search"
+        name = "Search"
+        url = "/en/search/"
+        weight = 60
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/en/about/"
+        weight = 70
+
+# ============================================================
+# 站点参数
+# ============================================================
+[params]
+  env = "production"
+  description = "记录技术、摄影、生活与思考的多元空间"
+  author = "Your Name"
+  keywords = ["博客", "技术", "摄影", "项目", "笔记", "Hugo", "GitHub Pages"]
+  DateFormat = "2006-01-02"
+  defaultTheme = "auto"  # auto / light / dark
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  ShowToc = true
+  TocOpen = false
+  comments = false
+  math = false
+  fuseOpts = { isCaseSensitive = false, shouldSort = true, location = 0, distance = 1000, threshold = 0.4, minMatchCharLength = 0, keys = ["title", "permalink", "summary", "content"] }
+
+  # 首页
+  [params.homeInfoParams]
+    Title = "你好，欢迎来到多元志 👋"
+    Content = """
+这里是一个记录**技术**、**摄影**、**项目**与**生活笔记**的多元空间。
+
+- 📝 长期更新的技术文章
+- 📷 镜头下的世界与光影
+- 🛠️ 亲手做的项目与实验
+- 📒 碎片化的思考与笔记
+
+点击上方导航栏探索不同内容板块。
+"""
+
+  # 社交链接
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/yourusername"
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:you@example.com"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+  # 封面图默认设置
+  [params.cover]
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false
+
+  # 代码高亮
+  [params.assets]
+    disableHLJS = true
+  [markup]
+    [markup.highlight]
+      noClasses = false
+      codeFences = true
+      guessSyntax = true
+      lineNos = false
+      style = "github-dark"
+    [markup.goldmark.renderer]
+      unsafe = true  # 允许 HTML
+
+# ============================================================
+# 分类与标签
+# ============================================================
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+# ============================================================
+# 隐私与 Cookie
+# ============================================================
+[privacy]
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.youtube]
+    privacyEnhanced = true
