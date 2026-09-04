@@ -7,7 +7,7 @@
 baseURL = "https://delightful-salamander-64e810.netlify.app/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
-title = "Bollot`Blog"
+title = "Ballot's Blog"
 theme = "PaperMod"
 enableRobotsTXT = true
 buildDrafts = false
@@ -35,7 +35,7 @@ hasCJKLanguage = true
   [languages.zh]
     languageName = "中文"
     weight = 1
-    title = "Bollot`Blog"
+    title = "Ballot's Blog"
     [languages.zh.params]
       description = "记录技术、摄影、生活与思考的多元空间"
     [languages.zh.menu]
@@ -78,7 +78,7 @@ hasCJKLanguage = true
   [languages.en]
     languageName = "English"
     weight = 2
-    title = "Bollot`Blog"
+    title = "Ballot's Blog"
     [languages.en.params]
       description = "A diverse space for tech, photography, life and thoughts"
     [languages.en.menu]
@@ -124,7 +124,7 @@ hasCJKLanguage = true
 [params]
   env = "production"
   description = "记录技术、摄影、生活与思考的多元空间"
-  author = "Your Name"
+  author = "Bollot"
   keywords = ["博客", "技术", "摄影", "项目", "笔记", "Hugo", "GitHub Pages"]
   DateFormat = "2006-01-02"
   defaultTheme = "auto"  # auto / light / dark
