@@ -4,7 +4,7 @@
 # 部署: GitHub Pages
 # ============================================================
 
-baseURL = "bollot.netlify.app/"
+baseURL = "https://bollot.netlify.app/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
 title = "Ballot's Blog"
