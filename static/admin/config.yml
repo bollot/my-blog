@@ -11,7 +11,6 @@ backend:
   branch: main
   base_url: https://api.netlify.com/auth/done
 
-
 # 方式二: 直接连 GitHub（需自行部署 OAuth 代理）
 # backend:
 #   name: github
